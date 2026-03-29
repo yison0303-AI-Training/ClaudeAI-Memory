@@ -1,5 +1,5 @@
 # ARCHITECTURE.md — 系統架構總覽
-# 最後更新：2026-03-22 09:05 CST（賈維斯 OAuth no-access 自動修復機制）
+# 最後更新：2026-03-29 CST（新增 Stock Dashboard、比價系統、stock_postgres）
 
 > 這份文件是 Claude Code 的核心參考，所有服務細節都在這裡。
 > 修改服務前，必須先確認這裡的路徑和設定。
@@ -13,7 +13,8 @@ yison_www/
 ├── Web-Services/           ← 對外 HTTP 服務
 │   ├── Gallery/            → gallery.yison.io  (Flask, port 5000)
 │   ├── Webhook/            → webhook.yison.io  (Express, port 3020)
-│   └── Salary-Dashboard/   → salary.yison.io   (Flask, port 5002)
+│   ├── Salary-Dashboard/   → salary.yison.io   (Flask, port 5002)
+│   └── Stock-Dashboard/    → stock.yison.io    (Flask, port 5003)
 │
 ├── Bots/                   ← AI 背景代理
 │   ├── Assistant/          → Telegram AI 助手（原 tools/Assistant）
@@ -61,6 +62,7 @@ nginx（127.0.0.1 反向代理，port 80）
     ├── gallery.yison.io      → localhost:5000  (Gunicorn)
     ├── webhook.yison.io      → localhost:3020  (Express)
     ├── salary.yison.io       → localhost:5002  (Gunicorn)
+    ├── stock.yison.io        → localhost:5003  (Gunicorn)
     └── x-twitter.yison.io    → 靜態 HTML（Bots/X-Daily-News/output/）
 ```
 
@@ -79,6 +81,7 @@ nginx（127.0.0.1 反向代理，port 80）
 | ai-gallery-worker | — | — | systemd --user | Python |
 | ai-gallery-ai-worker | — | — | systemd --user | Python |
 | salary-dashboard | salary.yison.io | 5002 | systemd --user | Python / Flask + Gunicorn |
+| stock-dashboard | stock.yison.io | 5003 | systemd --user | Python / Flask + Gunicorn |
 | webhook-service | webhook.yison.io | 3020 | PM2 (id=0) | Node.js / Express |
 | telegram-bot（諸葛亮） | — | — | PM2 (id=1) | Python |
 | claude-channel（賈維斯） | — | — | systemd --user | Claude Code |
@@ -310,6 +313,7 @@ tmux attach -t claude
 |---------|-------|------|------|
 | cloudflare_tunnel | cloudflare/cloudflared | — | 對外唯一入口 |
 | gallery_postgres | postgres:16-alpine | 5432 | ai_gallery + salary_dashboard DB |
+| stock_postgres | postgres:16-alpine | 5433 | stock_dashboard DB |
 | yison-postgres-agent | postgres:16-alpine | 5435 | claude_agent DB |
 | pgadmin | dpage/pgadmin4 | 5050 | DB 管理介面（本機用） |
 | yison-mcp-postgres | db-mcp-postgres | — | MCP PostgreSQL 工具 |
@@ -324,6 +328,7 @@ tmux attach -t claude
 |---------|------|------|------|------|
 | ai_gallery | Gallery 照片管理 | ai_gallery_user | 5432 | gallery_postgres |
 | salary_dashboard | 薪資收入記錄 | salary_user | 5432 | gallery_postgres |
+| stock_dashboard | 自選股 watchlist | stock_user | 5433 | stock_postgres |
 | claude_agent | Assistant AI 記憶 | agent_admin | 5435 | yison-postgres-agent |
 
 **超級使用者（gallery_postgres）：** `ai_gallery_user`（同時是 superuser）

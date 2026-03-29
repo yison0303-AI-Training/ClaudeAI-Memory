@@ -1,12 +1,13 @@
 # Yison-AI Server — 快速索引
 > 詳細內容在各主題檔，Grep 可快速搜尋
-> 最後更新：2026-03-22 09:31 CST（精簡版）
+> 最後更新：2026-03-29 CST（新增 Stock Dashboard、比價系統）
 
 ## 專案一覽
 | 專案 | 網域 | Port | 管理 |
 |------|------|------|------|
 | ai-gallery | gallery.yison.io | 5000 (Gunicorn) | systemd: ai-gallery / ai-gallery-worker / ai-gallery-ai-worker |
 | salary-dashboard | salary.yison.io | 5002 (Gunicorn) | systemd: salary-dashboard |
+| stock-dashboard | stock.yison.io | 5003 (Gunicorn) | systemd: stock-dashboard |
 | webhook-service | webhook.yison.io | 3020 (Express) | PM2 id=3: webhook-service |
 | telegram-bot | — | — | PM2 id=4: Telegram_Repair_Trigger.py --daemon |
 | X-Daily-News | x-twitter.yison.io | — | crontab（每 2 小時） |
@@ -41,6 +42,7 @@ cd /home/yison/yison_www/Operations/Cloudflare && docker compose restart
 |----|------|------|------|
 | ai_gallery | ai_gallery_user | 5432 | gallery_postgres |
 | salary_dashboard | salary_user | 5432 | gallery_postgres |
+| stock_dashboard | stock_user | 5433 | stock_postgres |
 | claude_agent | agent_admin | 5435 | yison-postgres-agent |
 
 詳細連線資訊 → `databases.md`
@@ -48,8 +50,9 @@ cd /home/yison/yison_www/Operations/Cloudflare && docker compose restart
 ## Telegram Bot
 - 諸葛亮：`pm2 restart telegram-bot`，Token env: `TELEGRAM_BOT_TOKEN`，Chat env: `TELEGRAM_ZHUGE_CHAT_ID`
 - 賈維斯：`~/yison_www/Operations/Health/Jarvis-Restart.sh`，Token env: `TELEGRAM_JARVIS_BOT_TOKEN`，Chat env: `TELEGRAM_JARVIS_CHAT_ID`
-- Gemini 2.5 Flash + function calling（9 個工具）
+- Gemini 2.5 Flash + function calling（10 個工具）
 - no-access 自動修復：Mutual-Watchdog.py（OAuth 8 小時過期，自動 /login + 選 1，通知諸葛亮）
+- **比價指令**（賈維斯）：`比價 {商品名稱}` → 三平台比價（PChome/蝦皮/momo）
 
 詳細架構 → `telegram_bots.md`
 
