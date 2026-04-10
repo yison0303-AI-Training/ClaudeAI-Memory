@@ -1,7 +1,7 @@
 # Yison-AI Server — 賈維斯動態記憶
 > 由 sync_claude_memory.sh 自動產生，每日 03:05 更新
-> 最後更新：2026-04-10 08:58 CST
-> 任務總數（14天）：2 條｜未完成：0 條｜重要記憶：6 條
+> 最後更新：2026-04-10 12:29 CST
+> 任務總數（14天）：19 條｜未完成：0 條｜重要記憶：13 條
 > ⚠️ 此檔案不含任何密碼、Token 或機敏 IP
 
 ---
@@ -15,8 +15,254 @@
 
 ## 近兩週任務記錄
 
+### 📅 2026-04-10 [bug_fix] 已修正，mutual-watchdog 重啟完成
+✅ 已修正，mutual-watchdog 重啟完成
+
+### 📅 修正摘要： [] 
+
+
+### 📅 1. /login 後冷卻 10 分鐘，期間完全跳過 no-access 偵測 [] 
+
+
+### 📅 2. 狀態變化才通知：偵測到 no-access 通知一次、恢復後通知一次 [] 
+
+
+### 📅 3. /login 失敗（需瀏覽器授權）→ 通知「需要手動授權」並停止重試 [] 
+
+
+### 📅 完成通知已透過諸葛亮發送。 [] 
+
+
 ### 📅 2026-04-10 [feature] MCP Server 測試記憶
 jarvis-memory-mcp.py 建立完成，5個工具正常運作
+
+### 📅 2026-04-10 [feature] search_memory「stock」查到 1 筆記錄：
+✅ search_memory「stock」查到 1 筆記錄：
+
+### 📅 📌 [記憶 #8] ⭐ 重要度 5（永久保留） [] 
+
+
+### 📅 類型：feature [] 
+
+
+### 📅 標題：stock.yison.io 週選股雙AI競技架構 [] 
+
+
+### 📅 時間：2026-04-10 [] 
+
+
+### 📅 內容： [] 
+
+
+### 📅 stock.yison.io 週選股競技場採用雙AI架構： [] 
+
+
+### 📅 • Gemini（自由選）→ Claude（避免Gemini重複）→ Combined（黑馬，避免前10支） [] 
+
+
+### 📅 • 三組各選5支，限制成交額150元以下台股，不得重複 [] 
+
+
+### 📅 • 每週五收盤後結算，比較漲跌幅準確率 [] 
+
+
+### 📅 記憶系統運作正常 ✔ [] 
+
+
+### 📅 2026-04-10 [config] [待辦] 確認諸葛亮自動回傳記憶連結功能
+status=pending。明天早上打招呼時，確認諸葛亮是否能自動回傳記憶連結功能是否正常運作。屬於測試驗證類。
+
+### 📅 2026-04-10 [config] [待辦] 確認 Daily Debrief 第一次自動執行
+status=pending。今晚 23:30 確認 Daily Debrief 第一次自動執行，Gemini 摘要是否正確寫入 DB。屬於測試驗證類。
+
+### 📅 2026-04-10 [config] [待辦] 確認 sync 自動更新 MEMORY_PUBLIC.md 並 push GitHub
+status=pending。明天 03:05 確認 crontab sync 任務是否自動更新 MEMORY_PUBLIC.md 並 push 到 GitHub。屬於測試驗證類。
+
+### 📅 2026-04-10 [config] [待辦] 批量匯入舊 Knowledge/Memory/*.md 重要內容到 DB
+status=pending。把舊的 Knowledge/Memory/*.md 中重要內容批量匯入 DB memories（importance 4-5），匯入完成後將原始 .md 封存到 Knowledge/Archive/。屬於優化類。
+
+### 📅 2026-04-10 [config] [待辦] 微調 Memory Writer importance 判斷規則
+status=pending。微調 Memory Writer 的 importance 自動判斷規則，避免測試記憶被誤判成 importance=5。屬於優化類。
+
+### 📅 2026-04-10 [feature] [待辦] MEMORY_PUBLIC.md 加入「今日 Daily Debrief 摘要」區塊
+status=pending。MEMORY_PUBLIC.md Step 5 格式升級尚未完整，需加入「今日 Daily Debrief 摘要」區塊。屬於優化類。
+
+### 📅 2026-04-10 [config] [待辦] 舊 Knowledge .md 文件降級整理與封存
+status=pending。把舊的 Knowledge .md 文件降級整理，靜態保留 5-6 個核心文件，其餘封存至 Archive/。屬於下一個大功能。
+
+### 📅 2026-04-10 [feature] [待辦] 評估 Jarvis Daily Debrief Telegram 通知格式優化
+status=pending。評估是否需要加入 Jarvis Daily Debrief 的 Telegram 通知格式優化，提升可讀性與資訊密度。屬於下一個大功能評估。
+
+### 📅 2026-04-10 [general] 8 條待辦已全數寫入 task_logs（status=pending）
+✅ 8 條待辦已全數寫入 task_logs（status=pending）
+
+### 📅 📋 【測試驗證類】 [] 
+
+
+### 📅 • #4 — 明天早上確認諸葛亮自動回傳記憶連結 [] 
+
+
+### 📅 • #5 — 今晚 23:30 確認 Daily Debrief 自動執行 + Gemini 摘要寫入 DB [] 
+
+
+### 📅 • #6 — 明天 03:05 確認 sync 更新 MEMORY_PUBLIC.md + push GitHub [] 
+
+
+### 📅 ⚙️ 【優化類】 [] 
+
+
+### 📅 • #7 — 批量匯入舊 Knowledge/Memory/*.md → DB（importance 4-5），匯入後封存 Archive/ [] 
+
+
+### 📅 • #8 — 微調 Memory Writer importance 判斷規則，避免測試記憶被誤判 importance=5 [] 
+
+
+### 📅 • #9 — MEMORY_PUBLIC.md 加入「今日 Daily Debrief 摘要」區塊（Step 5 格式升級） [] 
+
+
+### 📅 🚀 【下一個大功能】 [] 
+
+
+### 📅 • #10 — 舊 Knowledge .md 降級整理，靜態保留 5-6 個，其餘封存 [] 
+
+
+### 📅 • #11 — 評估 Jarvis Daily Debrief Telegram 通知格式優化 [] 
+
+
+### 📅 2026-04-10 [general] 早安，主人！☀️
+早安，主人！☀️
+
+### 📅 今天是 2026-04-10，目前 task_logs 顯示所有任務已完成，無未完成項目。 [] 
+
+
+### 📅 昨晚剛記下的 8 條待辦（測試驗證、優化、大功能）已寫入 DB，今天有幾個時間點要注意： [] 
+
+
+### 📅 ⏰ 今日待確認 [] 
+
+
+### 📅 • 23:30 — Daily Debrief 第一次自動執行，看 Gemini 摘要是否寫入 DB [] 
+
+
+### 📅 • 明天 03:05 — sync 更新 MEMORY_PUBLIC.md + push GitHub [] 
+
+
+### 📅 有什麼任務要交代嗎？ [] 
+
+
+### 📅 2026-04-10 [config] 打招呼規則：附上記憶連結提醒
+修改了兩個地方：
+
+### 📅 1. Operations/Health/Telegram_Repair_Trigger.py 第940行：諸葛亮打招呼訊息改為「早安，主人！☀️」+ MEMORY_PUBLIC.md 連結提醒 [] 
+
+
+### 📅 2. CLAUDE.md：新增「打招呼規則」區塊，要求賈維斯遇到早安/你好/嗨/hi/hello 時附上記憶連結提醒 [] 
+
+
+### 📅 記憶連結：https://raw.githubusercontent.com/yison0303-AI-Training/ClaudeAI-Memory/main/MEMORY_PUBLIC.md [] 
+
+
+### 📅 2026-04-10 [feature] 兩處修改完成！
+✅ 兩處修改完成！
+
+### 📅 【1】諸葛亮問候語已更新 [] 
+
+
+### 📅 📄 Operations/Health/Telegram_Repair_Trigger.py (L940) [] 
+
+
+### 📅 新訊息： [] 
+
+
+### 📅 「早安，主人！☀️ [] 
+
+
+### 📅 📋 提醒：請將以下連結貼給 Claude AI，讓他同步最新記憶： [] 
+
+
+### 📅 https://raw.githubusercontent.com/yison0303-AI-Training/ClaudeAI-Memory/main/MEMORY_PUBLIC.md」 [] 
+
+
+### 📅 【2】CLAUDE.md 已新增打招呼規則 [] 
+
+
+### 📅 賈維斯遇到「早安/你好/嗨/hi/hello」時，自動附上記憶同步提醒。 [] 
+
+
+### 📅 下次打招呼，兩邊都會提醒主人同步記憶 😊 [] 
+
+
+### 📅 ⚠️ 附註：安全 Hook 擋住了直接呼叫諸葛亮 API（需讀 Credentials 路徑），此次改由賈維斯頻道回報。 [] 
+
+
+### 📅 2026-04-10 [feature] 中午好，主人！🌞
+中午好，主人！🌞
+
+### 📅 📋 提醒：請將以下連結貼給 Claude AI，讓他同步最新記憶： [] 
+
+
+### 📅 https://raw.githubusercontent.com/yison0303-AI-Training/ClaudeAI-Memory/main/MEMORY_PUBLIC.md [] 
+
+
+### 📅 今天是 2026-04-10，星期五！ [] 
+
+
+### 📅 正在查 Mutual-Watchdog.py 是否已實作 rate limit 偵測，請稍候… [] 
+
+
+### 📅 2026-04-10 [feature] Rate Limit 自動偵測已完整實作！（2026-04-10 已加入）
+✅ Rate Limit 自動偵測已完整實作！（2026-04-10 已加入）
+
+### 📅 確認 5 個功能全部到位： [] 
+
+
+### 📅 1️⃣ 每 1 分鐘掃 tmux pane（crontab 輪詢），搜尋關鍵字： [] 
+
+
+### 📅    • "You've hit your limit" / "hit your limit" / "rate-limit-options" / "resets" [] 
+
+
+### 📅 2️⃣ 偵測到 → 自動送 3 + Enter（選等待重置）✔ [] 
+
+
+### 📅 3️⃣ 用 regex 解析畫面上的 "resets Xam/pm (Asia/Taipei)" 時間，轉換為 Unix timestamp ✔ [] 
+
+
+### 📅 4️⃣ 通知諸葛亮：「⏸️ 賈維斯觸發 Rate Limit，預計 X 點恢復」✔ [] 
+
+
+### 📅 5️⃣ 到時間後自動重啟賈維斯，並通知諸葛亮：「⚡️ 賈維斯滿血回歸！額度已重置」✔ [] 
+
+
+### 📅 📄 位置：Operations/Health/Mutual-Watchdog.py [] 
+
+
+### 📅 功能函數：check_jarvis_rate_limit() / handle_rate_limit() / check_and_revive_after_rate_l [] 
+
+
+### 📅 2026-04-10 [bug_fix] 修正 Mutual-Watchdog no-access 無限循環問題
+修改檔案：Operations/Health/Mutual-Watchdog.py
+
+### 📅 問題：送出 /login 後沒有冷卻，每分鐘重複偵測 no-access 並重複通知諸葛亮。 [] 
+
+
+### 📅 修正內容： [] 
+
+
+### 📅 1. 送出 /login 後，state 記錄 no_access_login_sent_ts，冷卻 10 分鐘內完全跳過 no-access 偵測 [] 
+
+
+### 📅 2. 新增 state 欄位 no_access_detected / no_access_manual_notified，只在狀態變化時通知（偵測到第一次、恢復第一次） [] 
+
+
+### 📅 3. /login 失敗（仍需瀏覽器授權）→ 通知一次「需要手動授權」，設 no_access_manual_notified=True 不再重試 [] 
+
+
+### 📅 4. no-access 消失時，若曾通知則發一次恢復通知並清除所有 state 旗標 [] 
+
+
+### 📅 已執行：pm2 restart mutual-watchdog → online [] 
+
 
 ### 📅 2026-04-09 [feature] 賈維斯記憶系統實作
 實作 5 模組記憶系統：DB schema 升級、Memory Writer、Claude Code Hook、Warmup 升級、諸葛亮記憶查詢工具
@@ -47,8 +293,89 @@ Mutual-Watchdog.py 自動修復機制：1. Rate limit：偵測→傳"3"→解析
 ### ⭐5 stock.yison.io 週選股雙AI競技架構
 stock.yison.io 週選股競技場採用雙AI架構：Gemini（自由選）→ Claude（避免Gemini重複）→ Combined（黑馬，避免前10支）。三組各選5支，限制成交額150元以下台股，不得重複。每週五收盤後結算，比較漲跌幅準確率。
 
-### ⭐4 MCP Server 測試記憶
-jarvis-memory MCP Server 建立完成，5個工具正常
+### ⭐ Rate Limit 自動偵測已完整實作！（2026-04-10 已加入）
+✅ Rate Limit 自動偵測已完整實作！（2026-04-10 已加入）
+
+### ⭐ 確認 5 個功能全部到位：
+
+
+### ⭐ 1️⃣ 每 1 分鐘掃 tmux pane（crontab 輪詢），搜尋關鍵字：
+
+
+### ⭐    • "You've hit your limit" / "hit your limit" / "rate-limit-options" / "resets"
+
+
+### ⭐ 2️⃣ 偵測到 → 自動送 3 + Enter（選等待重置）✔
+
+
+### ⭐ 3️⃣ 用 regex 解析畫面上的 "resets Xam/pm (Asia/Taipei)" 時間，轉換為 Unix timestamp ✔
+
+
+### ⭐ 4️⃣ 通知諸葛亮：「⏸️ 賈維斯觸發 Rate Limit，預計 X 點恢復」✔
+
+
+### ⭐ 5️⃣ 到時間後自動重啟賈維斯，並通知諸葛亮：「⚡️ 賈維斯滿血回歸！額度已重置」✔
+
+
+### ⭐ 📄 位置：Operations/Health/Mutual-Watchdog.py
+
+
+### ⭐ 功能函數：check_jarvis_rate_limit() / handle_rate_limit() / check_and_revive_after_rate_l
+4
+
+### ⭐ 中午好，主人！🌞
+中午好，主人！🌞
+
+### ⭐ 📋 提醒：請將以下連結貼給 Claude AI，讓他同步最新記憶：
+
+
+### ⭐ https://raw.githubusercontent.com/yison0303-AI-Training/ClaudeAI-Memory/main/MEMORY_PUBLIC.md
+
+
+### ⭐ 今天是 2026-04-10，星期五！
+
+
+### ⭐ 正在查 Mutual-Watchdog.py 是否已實作 rate limit 偵測，請稍候…
+4
+
+### ⭐ 兩處修改完成！
+✅ 兩處修改完成！
+
+### ⭐ 【1】諸葛亮問候語已更新
+
+
+### ⭐ 📄 Operations/Health/Telegram_Repair_Trigger.py (L940)
+
+
+### ⭐ 新訊息：
+
+
+### ⭐ 「早安，主人！☀️
+
+
+### ⭐ 📋 提醒：請將以下連結貼給 Claude AI，讓他同步最新記憶：
+
+
+### ⭐ https://raw.githubusercontent.com/yison0303-AI-Training/ClaudeAI-Memory/main/MEMORY_PUBLIC.md」
+
+
+### ⭐ 【2】CLAUDE.md 已新增打招呼規則
+
+
+### ⭐ 賈維斯遇到「早安/你好/嗨/hi/hello」時，自動附上記憶同步提醒。
+
+
+### ⭐ 下次打招呼，兩邊都會提醒主人同步記憶 😊
+
+
+### ⭐ ⚠️ 附註：安全 Hook 擋住了直接呼叫諸葛亮 API（需讀 Credentials 路徑），此次改由賈維斯頻道回報。
+4
+
+### ⭐4 [待辦] 舊 Knowledge .md 文件降級整理與封存
+status=pending。把舊的 Knowledge .md 文件降級整理，靜態保留 5-6 個核心文件，其餘封存至 Archive/。屬於下一個大功能。
+
+### ⭐4 [待辦] MEMORY_PUBLIC.md 加入「今日 Daily Debrief 摘要」區塊
+status=pending。MEMORY_PUBLIC.md Step 5 格式升級尚未完整，需加入「今日 Daily Debrief 摘要」區塊。屬於優化類。
 
 
 ---
@@ -67,15 +394,15 @@ jarvis-memory MCP Server 建立完成，5個工具正常
 - mutual-watchdog: online
 
 ### Docker 容器
-- dazzling_pare: Up 7 hours
-- stock_postgres: Up 44 hours (healthy)
-- vaultwarden: Up 44 hours (healthy)
-- yison-mcp-postgres: Up 44 hours
-- yison-postgres-agent: Up 44 hours (healthy)
-- yison-mcp-google-maps: Up 44 hours
-- cloudflare_tunnel: Up 44 hours
-- gallery_postgres: Up 44 hours (healthy)
-- pgadmin: Up 44 hours
+- quirky_euler: Up 5 minutes
+- stock_postgres: Up 47 hours (healthy)
+- vaultwarden: Up 47 hours (healthy)
+- yison-mcp-postgres: Up 47 hours
+- yison-postgres-agent: Up 47 hours (healthy)
+- yison-mcp-google-maps: Up 47 hours
+- cloudflare_tunnel: Up 47 hours
+- gallery_postgres: Up 47 hours (healthy)
+- pgadmin: Up 47 hours
 
 ---
 
