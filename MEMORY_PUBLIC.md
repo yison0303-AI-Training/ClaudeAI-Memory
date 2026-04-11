@@ -1,7 +1,7 @@
 # Yison-AI Server — 賈維斯動態記憶
 > 由 sync_claude_memory.sh 自動產生，每日 03:05 更新
-> 最後更新：2026-04-11 11:29 CST
-> 任務總數（14天）：99 條｜未完成：0 條｜重要記憶：35 條
+> 最後更新：2026-04-11 11:34 CST
+> 任務總數（14天）：99 條｜未完成：0 條｜重要記憶：33 條
 > ⚠️ 此檔案不含任何密碼、Token 或機敏 IP
 
 ---
@@ -86,12 +86,6 @@ status=pending。微調 Memory Writer 的 importance 自動判斷規則，避免
 
 ## 重要長期記憶
 
-### ⭐5 這是**太空船大氣層跳躍再入（Skip Reentry）**示意圖，說明太空艙從月球返回地球的飛行過程：
-這是**太空船大氣層跳躍再入（Skip Reentry）**示意圖，說明太空艙從月球返回地球的飛行過程： **6 個步驟：** 1. **從月球出發** — 速度約 40,000 km/h 2. **初次大氣層進入** — 接觸大氣層上緣，溫度約 2800°C 3. **跳躍（The Skip）** — 像打水漂一樣，太空艙不直接衝入大氣，而是「彈」回太空 4. **跳躍飛行階段（真空中）**...
-
-### ⭐5 今天你丟來的三個，老實說：
-今天你丟來的三個，老實說： ❌ Hermes Agent — 不需要，你的架構更完整 ❌ ShellFrame — 不需要，你用 Telegram 遠端操作 ⚠️ doc-cleaner — 有潛力，但看你有沒有文件處理需求 目前沒有看到「一定要裝」的工具。 主要是你的系統架構已經很完整了，大部分開源工具解決的問題你已經自己解決了。 如果要找真正有用的，我覺得比較值得關注的方向是： • *...
-
 ### ⭐5 claude_agent DB 缺少 chat_logs 表
 症狀：Daily Log Summary 報告 `relation "chat_logs" does not exist` 錯誤。根本原因：`yison-postgres-agent` 容器建立時只有 memories 表，chat_logs 表從未建立。解法：手動執行 CREATE TABLE：`docker exec yison-postgres-agent psql -U agent_adm...
 
@@ -115,6 +109,12 @@ task_logs 資料表欄位包含：task_title、task_summary、category、importa
 
 ### ⭐5 claude_agent主要資料表
 claude_agent 資料庫主要資料表： 1. memories：長期記憶，含 expires_at（NULL=永久），依 importance 設定到期時間 2. task_logs：任務記錄，含 status（pending/done）、importance、created_at
+
+### ⭐5 weekly_picks表JSON欄位結構
+weekly_picks 資料表 JSON schema 欄位： - rank：排名（1–5） - symbol：股票代號（純數字，如 2303） - name：股票名稱 - sector：類股分類 - direction：up 或 down - target_price：一週後預測股價 - predict_pct：預測漲跌幅（負數為跌） - reasoning：選股理由（繁體中文，50 字內）
+
+### ⭐5 stock_dashboard資料庫配置
+stock_dashboard 使用 PostgreSQL，port 5433，用途為儲存每週 AI 選股競技結果。週次 key 以本週一日期字串（YYYY-MM-DD）作為唯一識別，防止重複寫入。連線使用 psycopg2，採用 RealDictCursor。
 
 
 ---
