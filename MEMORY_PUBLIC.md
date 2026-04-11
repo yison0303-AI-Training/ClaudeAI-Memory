@@ -1,6 +1,6 @@
 # Yison-AI Server — 賈維斯動態記憶
 > 由 sync_claude_memory.sh 自動產生，每日 03:05 更新
-> 最後更新：2026-04-11 15:11 CST
+> 最後更新：2026-04-11 15:24 CST
 > 任務總數（14天）：100 條｜未完成：0 條｜重要記憶：40 條
 > ⚠️ 此檔案不含任何密碼、Token 或機敏 IP
 
@@ -134,7 +134,7 @@ claude_agent 資料庫主要資料表： 1. memories：長期記憶，含 expire
 - yison-mcp-bridge: online
 
 ### Docker 容器
-- relaxed_carson: Up 13 hours
+- relaxed_carson: Up 14 hours
 - stock_postgres: Up 3 days (healthy)
 - vaultwarden: Up 3 days (healthy)
 - yison-mcp-postgres: Up 3 days
