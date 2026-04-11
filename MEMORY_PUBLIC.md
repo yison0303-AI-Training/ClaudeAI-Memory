@@ -1,7 +1,7 @@
 # Yison-AI Server — 賈維斯動態記憶
 > 由 sync_claude_memory.sh 自動產生，每日 03:05 更新
-> 最後更新：2026-04-11 10:40 CST
-> 任務總數（14天）：97 條｜未完成：0 條｜重要記憶：34 條
+> 最後更新：2026-04-11 11:28 CST
+> 任務總數（14天）：99 條｜未完成：0 條｜重要記憶：35 條
 > ⚠️ 此檔案不含任何密碼、Token 或機敏 IP
 
 ---
@@ -18,8 +18,8 @@
 ### 📅 2026-04-11 [general] 這是 **ShellFrame**，一個輕量級的多標籤 GUI 終端機包裝工具。
 這是 **ShellFrame**，一個輕量級的多標籤 GUI 終端機包裝工具。 **專門為 Claude Code 設計的亮點：** • 可以直接 Cmd+V / Ctrl+V 貼截圖進終端，自動存成檔案並把路徑注入 Claude Code • 多標籤同時跑多個 AI 工作階段 • 可儲存預設指令（例如 `claude --dangerously-skip-permissions` 這種長指令...
 
-### 📅 2026-04-11 [infra] 這是 Nous Research 開發的開源 AI Agent 框架，叫 **Hermes Agent**。
-這是 Nous Research 開發的開源 AI Agent 框架，叫 **Hermes Agent**。 ⭐ GitHub 51.9k 星，MIT 授權 **核心特色：** • 自我改進：會從對話經驗自動建立技能，持續學習 • 多平台：CLI / Telegram / Discord / Slack / WhatsApp / Signal 都能跑 • 支援 200+ 模型：OpenAI、A...
+### 📅 2026-04-11 [general] 對不起漏掉一個！完整清單：
+對不起漏掉一個！完整清單： 🖼 AI 相冊 https://gallery.yison.io 💰 薪資儀表板 https://salary.yison.io 📈 自選股看板 https://stock.yison.io 📊 Usage 儀表板 https://usage.yison.io （靜態 HTML，輸出在 Web-Services/Usage-Dashboard/output/） ...
 
 ### 📅 2026-04-11 [config] 找到了！monitor.yison.io
 找到了！monitor.yison.io 設計文件裡有規劃這個網域，路徑是 infra/monitoring/，但目前： • 資料夾不存在 • 網站沒有回應（HTTP 000） • nginx 也沒有 monitor.yison.io 的設定 應該是之前規劃過但還沒有建出來。 你想建立賈維斯專屬的監控 Dashboard 嗎？
@@ -27,11 +27,11 @@
 ### 📅 2026-04-11 [config] 對，如果開 AI 模式的話很吃。
 對，如果開 AI 模式的話很吃。 但它有 `--ai none` 純提取模式，完全不用 token，直接用規則解析文件結構。 如果文件是原生文字 PDF（不是掃描圖），純提取模式效果就很好，不需要 AI 介入。 掃描圖才會需要 AI（OCR + 理解），那才真的燒 token。 所以看你的使用場景： • 原生 PDF / DOCX → 免 token • 掃描圖 PDF → 才需要 AI，...
 
-### 📅 2026-04-11 [config] 健康檢查新增 vault.yison.io / usage.yison.io 監控
-新增兩個網站到健康檢查監控清單： - vault.yison.io（Vaultwarden 密碼管理器） - usage.yison.io（Claude Code 用量報表） 修改檔案： 1. Operations/Health/System_Health.py：WEBSITES 清單新增兩筆 2. Operations/Health/Telegram_Repair_Trigger.py：WEB...
+### 📅 2026-04-11 [feature] 天氣預報修復 + GPS 位置 Webhook + Morning Greeting 更新
+今日完成項目： 1. 修復天氣預報邏輯：    - 圖片城市（週末全球輪播）與天氣城市（使用者所在地）正確分離，不再混用 2. 新增 webhook /location/update endpoint：    - 接收 Tasker 傳來的 GPS 座標，存進 DB 3. 更新 morning_greeting.py：    - 天氣資訊改從 DB 讀取位置，預設城市為台北士林 4. 更新...
 
-### 📅 2026-04-11 [infra] 不需要。原因如下：
-不需要。原因如下： **你已經有的：** • 賈維斯 = Claude Code + Telegram（比它更強的模型） • 記憶系統 = Jarvis_Memory_Writer + PostgreSQL（客製化、完全掌控） • 排程 = crontab + PM2（夠用） • 多服務架構 = 自己的 nginx / systemd / Docker **Hermes 能給你什麼你沒有的：*...
+### 📅 2026-04-11 [general] usage.yison.io 是 Claude Code 用量報表
+usage.yison.io 是 Claude Code 用量報表 追蹤 Claude Code 的 token 使用量、費用等，靜態 HTML 頁面，由腳本定期生成後放到 output/ 目錄。
 
 ### 📅 2026-04-11 [general] 系統目前所有對外網站：
 系統目前所有對外網站： 🖼 AI 相冊 https://gallery.yison.io Flask + Gunicorn，Google Drive 照片 + Gemini AI 分析 💰 薪資儀表板 https://salary.yison.io 華電聯網薪資收入管理（月/季統計） 📈 自選股看板 https://stock.yison.io 個人持股追蹤，即時股價（Yahoo Finan...
@@ -51,11 +51,17 @@
 ### 📅 2026-04-11 [feature] 這是**太空船大氣層跳躍再入（Skip Reentry）**示意圖，說明太空艙從月球返回地球的飛行過程：
 這是**太空船大氣層跳躍再入（Skip Reentry）**示意圖，說明太空艙從月球返回地球的飛行過程： **6 個步驟：** 1. **從月球出發** — 速度約 40,000 km/h 2. **初次大氣層進入** — 接觸大氣層上緣，溫度約 2800°C 3. **跳躍（The Skip）** — 像打水漂一樣，太空艙不直接衝入大氣，而是「彈」回太空 4. **跳躍飛行階段（真空中）**...
 
-### 📅 2026-04-11 [general] usage.yison.io 是 Claude Code 用量報表
-usage.yison.io 是 Claude Code 用量報表 追蹤 Claude Code 的 token 使用量、費用等，靜態 HTML 頁面，由腳本定期生成後放到 output/ 目錄。
+### 📅 2026-04-11 [config] 已記錄（我就是賈維斯，直接存進去了）
+✅ 已記錄（我就是賈維斯，直接存進去了） Memory id=248，今日 5 個重點全部寫入： • 天氣預報圖片城市 / 天氣城市分離 • /location/update webhook + GPS → DB • morning_greeting.py 從 DB 讀位置 • weather_report.py 加 photo_city 參數 • Daily Debrief 23:30 確認正...
 
-### 📅 2026-04-11 [general] 對不起漏掉一個！完整清單：
-對不起漏掉一個！完整清單： 🖼 AI 相冊 https://gallery.yison.io 💰 薪資儀表板 https://salary.yison.io 📈 自選股看板 https://stock.yison.io 📊 Usage 儀表板 https://usage.yison.io （靜態 HTML，輸出在 Web-Services/Usage-Dashboard/output/） ...
+### 📅 2026-04-11 [config] 健康檢查新增 vault.yison.io / usage.yison.io 監控
+新增兩個網站到健康檢查監控清單： - vault.yison.io（Vaultwarden 密碼管理器） - usage.yison.io（Claude Code 用量報表） 修改檔案： 1. Operations/Health/System_Health.py：WEBSITES 清單新增兩筆 2. Operations/Health/Telegram_Repair_Trigger.py：WEB...
+
+### 📅 2026-04-11 [infra] 這是 Nous Research 開發的開源 AI Agent 框架，叫 **Hermes Agent**。
+這是 Nous Research 開發的開源 AI Agent 框架，叫 **Hermes Agent**。 ⭐ GitHub 51.9k 星，MIT 授權 **核心特色：** • 自我改進：會從對話經驗自動建立技能，持續學習 • 多平台：CLI / Telegram / Discord / Slack / WhatsApp / Signal 都能跑 • 支援 200+ 模型：OpenAI、A...
+
+### 📅 2026-04-11 [infra] 不需要。原因如下：
+不需要。原因如下： **你已經有的：** • 賈維斯 = Claude Code + Telegram（比它更強的模型） • 記憶系統 = Jarvis_Memory_Writer + PostgreSQL（客製化、完全掌控） • 排程 = crontab + PM2（夠用） • 多服務架構 = 自己的 nginx / systemd / Docker **Hermes 能給你什麼你沒有的：*...
 
 ### 📅 2026-04-10 [infra] sync 完成
 ✅ sync 完成 MEMORY_PUBLIC.md 7710 bytes（12:53 CST） 已 push GitHub + 部署 webhook 現在可以測試 fetch https://webhook.yison.io/memory.md 確認是否拿到最新版本（最後更新：2026-04-10 12:53 CST）
@@ -68,12 +74,6 @@ status=pending。微調 Memory Writer 的 importance 自動判斷規則，避免
 
 ### 📅 2026-04-10 [bug_fix] 修正記憶系統雜訊過濾與 DB 清理
 修改檔案： 1. Operations/System/Jarvis_Memory_Writer.py — from_hook() 加入 _should_skip() 過濾邏輯 2. Operations/Sync/sync_claude_memory.sh — task_logs 查詢加 task_title NOT NULL + length >= 30 條件 過濾規則（Jarvis_Memo...
-
-### 📅 2026-04-10 [bug_fix] 修正 Mutual-Watchdog no-access 無限循環問題
-修改檔案：Operations/Health/Mutual-Watchdog.py 問題：送出 /login 後沒有冷卻，每分鐘重複偵測 no-access 並重複通知諸葛亮。 修正內容： 1. 送出 /login 後，state 記錄 no_access_login_sent_ts，冷卻 10 分鐘內完全跳過 no-access 偵測 2. 新增 state 欄位 no_access_det...
-
-### 📅 2026-04-10 [config] [待辦] 批量匯入舊 Knowledge/Memory/*.md 重要內容到 DB
-status=pending。把舊的 Knowledge/Memory/*.md 中重要內容批量匯入 DB memories（importance 4-5），匯入完成後將原始 .md 封存到 Knowledge/Archive/。屬於優化類。
 
 
 ---
@@ -123,9 +123,9 @@ claude_agent 資料庫主要資料表： 1. memories：長期記憶，含 expire
 
 ### systemd 服務
 
-- ai-gallery: unknown
-- salary-dashboard: unknown
-- stock-dashboard: unknown
+- ai-gallery: active
+- salary-dashboard: active
+- stock-dashboard: active
 
 ### PM2 服務
 - telegram-bot: online
@@ -133,7 +133,7 @@ claude_agent 資料庫主要資料表： 1. memories：長期記憶，含 expire
 - webhook-service: online
 
 ### Docker 容器
-- relaxed_carson: Up 9 hours
+- relaxed_carson: Up 10 hours
 - stock_postgres: Up 2 days (healthy)
 - vaultwarden: Up 2 days (healthy)
 - yison-mcp-postgres: Up 2 days
