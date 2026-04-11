@@ -1,6 +1,6 @@
 # Yison-AI Server — 賈維斯動態記憶
 > 由 sync_claude_memory.sh 自動產生，每日 03:05 更新
-> 最後更新：2026-04-11 15:00 CST
+> 最後更新：2026-04-11 15:05 CST
 > 任務總數（14天）：110 條｜未完成：0 條｜重要記憶：39 條
 > ⚠️ 此檔案不含任何密碼、Token 或機敏 IP
 
@@ -123,9 +123,9 @@ weekly_picks 資料表 JSON schema 欄位： - rank：排名（1–5） - symbol
 
 ### systemd 服務
 
-- ai-gallery: active
-- salary-dashboard: active
-- stock-dashboard: active
+- ai-gallery: unknown
+- salary-dashboard: unknown
+- stock-dashboard: unknown
 
 ### PM2 服務
 - telegram-bot: online
